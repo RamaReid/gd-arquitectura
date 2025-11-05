@@ -21,6 +21,18 @@ const slides = [
   {
     id: 3,
     image: '/images/projects/vidahause-hero.jpg'
+  },
+  {
+    id: 4,
+    image: '/images/projects/JOMAHAUSE-hero.jpg'
+  },
+  {
+    id: 5,
+    image: '/images/projects/MARKHAUSE-hero.jpg'
+  },
+  {
+    id: 6,
+    image: '/images/projects/USAHAUSE-hero.jpg'
   }
 ]
 

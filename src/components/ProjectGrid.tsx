@@ -37,6 +37,30 @@ const projects: Project[] = [
     year: '2024',
     image: '/images/projects/vidahause-hero.jpg',
     description: 'Proyecto residencial con enfoque en sustentabilidad.'
+  },
+  {
+    id: 'jomahause',
+    title: 'Jomahause',
+    location: 'Residencial',
+    year: '2024',
+    image: '/images/projects/JOMAHAUSE-hero.jpg',
+    description: 'Residencia familiar con diseño minimalista y amplios ventanales.'
+  },
+  {
+    id: 'markhause',
+    title: 'Markhause',
+    location: 'Residencial',
+    year: '2024',
+    image: '/images/projects/MARKHAUSE-hero.jpg',
+    description: 'Casa de estilo contemporáneo con elementos naturales integrados.'
+  },
+  {
+    id: 'usahause',
+    title: 'Usahause',
+    location: 'Residencial',
+    year: '2024',
+    image: '/images/projects/USAHAUSE-hero.jpg',
+    description: 'Vivienda moderna con enfoque en la eficiencia energética.'
   }
 ]
 
