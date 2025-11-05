@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #faf8f5;
+  --foreground: #171717;
+  --font-crimson: 'Crimson Text', serif;
+  --font-inter: 'Inter', sans-serif;
+  --gd-warm: #FAF8F5;
+  --gd-gray: #6E6E6E;
+  --gd-red: #FF0009;
+  --gd-blue: #34369E;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-inter);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* GD Architecture Custom Styles */
+.gd-sunrise {
+  animation: sunrise 2.5s ease-out forwards;
+}
+
+.svg-draw {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+}
+
+.svg-draw-animate {
+  animation: drawPath 3s ease-in-out forwards;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection colors */
+::selection {
+  background-color: var(--gd-red);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: var(--gd-red);
+  color: white;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gd-warm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gd-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gd-red);
+}
+
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes sunrise {
+  0% { opacity: 0; filter: brightness(0.8); }
+  50% { opacity: 0.8; filter: brightness(1.1); }
+  100% { opacity: 1; filter: brightness(1); }
+}
+
+/* Focus styles */
+*:focus {
+  outline: 2px solid var(--gd-blue);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, input, textarea, select {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none;
+  }
+}
