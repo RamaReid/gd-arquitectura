@@ -179,7 +179,7 @@ npx vercel
 Para consultas sobre el desarrollo o personalización del sitio:
 - Documentación técnica en `/docs`
 - Issues en GitHub
-- Email: desarrollo@gdarquitectura.com
+- Email: rgarciareid@gmail.com
 
 ---
 
