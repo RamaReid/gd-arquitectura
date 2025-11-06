@@ -8,7 +8,7 @@ export default function EstudioPage() {
             GD Arquitectura
           </h1>
           <p className="text-2xl font-serif text-gd-gray/80 mb-8 italic">
-            "Espacios que inspiran vida"
+            &ldquo;Espacios que inspiran vida&rdquo;
           </p>
           <p className="text-xl text-gd-gray/80 max-w-4xl mx-auto leading-relaxed">
             Somos un estudio de arquitectura dedicado a crear espacios únicos que reflejan 
@@ -74,8 +74,8 @@ export default function EstudioPage() {
               y comerciales. Especializado en diseño sustentable y arquitectura bioclimática.
             </p>
             <p className="text-gd-gray/80 leading-relaxed">
-              "Mi objetivo es crear espacios que no solo sean hermosos, sino que mejoren 
-              la calidad de vida de quienes los habitan."
+              &ldquo;Mi objetivo es crear espacios que no solo sean hermosos, sino que mejoren
+              la calidad de vida de quienes los habitan.&rdquo;
             </p>
           </div>
         </div>

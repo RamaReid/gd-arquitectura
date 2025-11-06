@@ -10,16 +10,16 @@ export default function Home() {
       <section className="relative">
         <HeroCarousel />
       </section>
-      
+
       {/* Resto de secciones - SIN FONDO para mostrar el fondo arquitectónico */}
       <div className="relative">
-        <QuoteBlock 
+        <QuoteBlock
           quote="Cada proyecto es una oportunidad de crear espacios que inspiren y conecten con la vida cotidiana."
           author="García Delillo"
         />
-        
+
         <ProjectGrid />
-        
+
         <FooterEditorial />
       </div>
     </div>

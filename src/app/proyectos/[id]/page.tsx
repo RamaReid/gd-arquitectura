@@ -2,10 +2,10 @@
 
 import { useParams } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { projectsData, getProjectImages, type ProjectImage } from '@/lib/projects'
+import { projectsData, type ProjectImage } from '@/lib/projects'
+import OptimizedImage from '@/components/OptimizedImage'
 
 export default function ProjectPage() {
   const params = useParams()
@@ -15,6 +15,13 @@ export default function ProjectPage() {
   const [images, setImages] = useState<ProjectImage[]>([])
 
   const project = projectsData[projectId as keyof typeof projectsData]
+
+  // Inicializar imágenes del proyecto
+  useEffect(() => {
+    if (project) {
+      setImages(project.images)
+    }
+  }, [project])
 
   // Navegación por teclado
   useEffect(() => {
@@ -89,12 +96,13 @@ export default function ProjectPage() {
             </div>
 
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-              <Image
+              <OptimizedImage
                 src={project.image || images[0]?.src || '/images/placeholder.jpg'}
                 alt={project.title}
                 fill
                 className="object-cover"
                 priority
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </div>
@@ -137,11 +145,12 @@ export default function ProjectPage() {
                       playsInline
                     />
                   ) : (
-                    <Image
+                    <OptimizedImage
                       src={image.src}
                       alt={image.alt}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   )}
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -199,12 +208,11 @@ export default function ProjectPage() {
                   className="max-w-full max-h-[80vh] object-contain"
                 />
               ) : (
-                <Image
+                <OptimizedImage
                   src={selectedImage.src}
                   alt={selectedImage.alt}
-                  width={1200}
-                  height={800}
                   className="max-w-full max-h-[80vh] object-contain"
+                  sizes="100vw"
                 />
               )}
             </div>

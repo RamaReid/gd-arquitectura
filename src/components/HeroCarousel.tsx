@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
+import OptimizedImage from './OptimizedImage'
 
 export default function HeroCarousel({ className = '' }: { className?: string }) {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -38,21 +38,21 @@ export default function HeroCarousel({ className = '' }: { className?: string })
   ]
 
   return (
-    <section 
+    <section
       className={`relative overflow-hidden bg-gd-warm ${className}`}
       style={{ height: '120vh' }}
     >
       {/* Simple Image Display */}
       <div className="relative w-full h-full">
-        <Image
+        <OptimizedImage
           src={slides[currentIndex].image}
           alt={`Proyecto arquitectónico ${currentIndex + 1}`}
           fill
           className="object-cover"
           priority
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
-        
       </div>
 
       {/* Dots Indicator */}
@@ -62,8 +62,8 @@ export default function HeroCarousel({ className = '' }: { className?: string })
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-3 h-3 rounded-full transition-colors ${
-              index === currentIndex 
-                ? 'bg-white' 
+              index === currentIndex
+                ? 'bg-white'
                 : 'bg-white/50 hover:bg-white/75'
             }`}
             aria-label={`Ir a imagen ${index + 1}`}

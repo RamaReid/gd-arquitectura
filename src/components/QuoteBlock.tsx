@@ -19,7 +19,7 @@ export default function QuoteBlock({ quote, author }: QuoteBlockProps) {
       <div className="container mx-auto px-6 text-center">
         <blockquote className="mx-auto max-w-4xl">
           <p className="font-serif text-2xl md:text-3xl lg:text-4xl text-gd-gray leading-relaxed">
-            "{quote}"
+            &ldquo;{quote}&rdquo;
           </p>
           {author && (
             <footer className="mt-8">

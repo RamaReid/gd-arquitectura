@@ -1,10 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { getAllProjects, type ProjectData } from '@/lib/projects'
+import OptimizedImage from './OptimizedImage'
+import LazyLoad from './LazyLoad'
+import ProjectSkeleton from './ProjectSkeleton'
 
 export default function ProjectGrid() {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null)
@@ -56,51 +58,53 @@ export default function ProjectGrid() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
-            <motion.article
-              key={project.id}
-              className="group cursor-pointer"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              onMouseEnter={() => setHoveredProject(project.id)}
-              onMouseLeave={() => setHoveredProject(null)}
-            >
-              <Link href={`/proyectos/${project.id}`}>
-                <div className="relative overflow-hidden rounded-lg aspect-[4/3] mb-4">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                
-                <div className="space-y-2">
-                  <h3 className="font-serif text-xl md:text-2xl text-gd-gray">
-                    {project.title}
-                  </h3>
-                  <div className="flex justify-between text-sm text-gd-gray/70 mb-2">
-                    <span>{project.location}</span>
-                    <span>{project.year}</span>
+            <LazyLoad key={project.id} fallback={<ProjectSkeleton />}>
+              <motion.article
+                className="group cursor-pointer"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                onMouseEnter={() => setHoveredProject(project.id)}
+                onMouseLeave={() => setHoveredProject(null)}
+              >
+                <Link href={`/proyectos/${project.id}`}>
+                  <div className="relative overflow-hidden rounded-lg aspect-[4/3] mb-4">
+                    <OptimizedImage
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                  <div className="flex flex-wrap gap-1 mb-2">
-                    {project.features.slice(0, 3).map((feature, idx) => (
-                      <span
-                        key={idx}
-                        className="px-2 py-1 bg-gd-warm/50 text-gd-gray text-xs rounded-full"
-                      >
-                        {feature}
-                      </span>
-                    ))}
+                  
+                  <div className="space-y-2">
+                    <h3 className="font-serif text-xl md:text-2xl text-gd-gray">
+                      {project.title}
+                    </h3>
+                    <div className="flex justify-between text-sm text-gd-gray/70 mb-2">
+                      <span>{project.location}</span>
+                      <span>{project.year}</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1 mb-2">
+                      {project.features.slice(0, 3).map((feature, idx) => (
+                        <span
+                          key={idx}
+                          className="px-2 py-1 bg-gd-warm/50 text-gd-gray text-xs rounded-full"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-gd-gray/80 leading-relaxed">
+                      {project.description}
+                    </p>
                   </div>
-                  <p className="text-gd-gray/80 leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-              </Link>
-            </motion.article>
+                </Link>
+              </motion.article>
+            </LazyLoad>
           ))}
         </div>
       </div>
