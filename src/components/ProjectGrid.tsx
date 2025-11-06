@@ -15,6 +15,14 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: 'cedahause',
+    title: 'Cedahause',
+    location: 'Residencial',
+    year: '2024',
+    image: '/images/projects/CEDAHAUSE-hero.png',
+    description: 'Proyecto residencial con diseño innovador y funcionalidad avanzada.'
+  },
+  {
     id: 'gadehause',
     title: 'Gadehause',
     location: 'Residencial',
