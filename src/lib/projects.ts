@@ -14,6 +14,8 @@ export interface ProjectData {
   year: string
   image: string
   description: string
+  category: string
+  features: string[]
   images: ProjectImage[]
 }
 
@@ -25,6 +27,8 @@ export const projectsData: Record<string, ProjectData> = {
     year: '2024',
     image: '/images/projects/CEDAHAUSE-hero.png',
     description: 'Proyecto residencial con diseño innovador y funcionalidad avanzada.',
+    category: 'Residencial Moderno',
+    features: ['Terraza', 'Multimedia', 'Minimalista'],
     images: []
   },
   gadehause: {
@@ -34,6 +38,8 @@ export const projectsData: Record<string, ProjectData> = {
     year: '2024',
     image: '/images/projects/gadehause-hero.jpg',
     description: 'Casa familiar con diseño contemporáneo y espacios integrados.',
+    category: 'Residencial Familiar',
+    features: ['Patio', 'Terraza', 'Pileta'],
     images: []
   },
   magahause: {
@@ -43,6 +49,8 @@ export const projectsData: Record<string, ProjectData> = {
     year: '2024',
     image: '/images/projects/magahause-hero.jpg',
     description: 'Vivienda de dos plantas con terraza y quincho integrado.',
+    category: 'Residencial Moderno',
+    features: ['Terraza', 'Quincho', 'Dos plantas'],
     images: []
   },
   jomahause: {
@@ -52,6 +60,8 @@ export const projectsData: Record<string, ProjectData> = {
     year: '2024',
     image: '/images/projects/JOMAHAUSE-hero.jpg',
     description: 'Residencia familiar con diseño minimalista y amplios ventanales.',
+    category: 'Residencial Minimalista',
+    features: ['Ventanales amplios', 'Minimalista', 'Luminoso'],
     images: []
   },
   markhause: {
@@ -61,6 +71,8 @@ export const projectsData: Record<string, ProjectData> = {
     year: '2024',
     image: '/images/projects/MARKHAUSE-hero.jpg',
     description: 'Casa de estilo contemporáneo con elementos naturales integrados.',
+    category: 'Residencial Contemporáneo',
+    features: ['Elementos naturales', 'Contemporáneo', 'Integración'],
     images: []
   },
   usahause: {
@@ -70,6 +82,8 @@ export const projectsData: Record<string, ProjectData> = {
     year: '2024',
     image: '/images/projects/USAHAUSE-hero.jpg',
     description: 'Vivienda moderna con enfoque en la eficiencia energética.',
+    category: 'Residencial Sustentable',
+    features: ['Eficiencia energética', 'Sustentable', 'Moderno'],
     images: []
   },
   vidahause: {
@@ -79,6 +93,8 @@ export const projectsData: Record<string, ProjectData> = {
     year: '2024',
     image: '/images/projects/vidahause-hero.jpg',
     description: 'Proyecto residencial con enfoque en sustentabilidad.',
+    category: 'Residencial Sustentable',
+    features: ['Sustentable', 'Ecológico', 'Moderno'],
     images: []
   }
 }
