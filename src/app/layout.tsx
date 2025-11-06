@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import Header from '@/components/Header'
 import LoaderPlano from '@/components/LoaderPlano'
 import './globals.css'
+import '../styles/turnjs.css'
 
 const inter = Inter({ 
   subsets: ['latin'],
