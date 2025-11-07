@@ -1,13 +1,7 @@
-'use client'
-
 import { Inter, Crimson_Text } from 'next/font/google'
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { usePathname } from 'next/navigation'
-import Header from '@/components/Header'
-import LoaderPlano from '@/components/LoaderPlano'
 import './globals.css'
 import '../styles/turnjs.css'
+import ClientShell from '@/components/ClientShell'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -25,24 +19,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const [showHeader, setShowHeader] = useState(false)
-  const [isLoadingComplete, setIsLoadingComplete] = useState(false)
-  const pathname = usePathname()
-
-  const handleHeaderShow = () => {
-    setShowHeader(true)
-    // Después de un breve delay para que termine la animación del header
-    setTimeout(() => {
-      setIsLoadingComplete(true)
-    }, 800) // Tiempo para que termine de aparecer el header
-  }
-
-  const handleLoadingComplete = () => {
-    // Ya no se usa aquí, el timing se maneja en handleHeaderShow
-  }
-
+  // Layout ahora es un Server Component: no usar hooks ni 'use client' aquí
   return (
-    <html lang="es" className={`${inter.variable} ${crimsonText.variable}`}>
+    <html lang="es" className={`${inter.variable} ${crimsonText.variable}`}> 
       <head>
         <title>GD Arquitectura - Diseño y Construcción</title>
         <meta name="description" content="Estudio de arquitectura especializado en diseño residencial y construcción de alta calidad." />
@@ -58,32 +37,10 @@ export default function RootLayout({
           backgroundRepeat: 'no-repeat'
         }}
       >
-        <LoaderPlano 
-          onHeaderShow={handleHeaderShow}
-          onLoadingComplete={handleLoadingComplete} 
-        />
-        
-        {/* Fondo principal que aparece inmediatamente - EN TODAS LAS PÁGINAS */}
-        <motion.div
-          className="fixed inset-0 z-[1]"
-          style={{
-            backgroundImage: `url('/images/background2.png')`,
-            backgroundSize: 'cover',
-            backgroundAttachment: 'fixed',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
-        />
-        
-        <Header isVisible={showHeader} />
-        <main className="relative z-[2]">
-          <div data-loading-complete={isLoadingComplete}>
-            {children}
-          </div>
-        </main>
+        {/* ClientShell contiene LoaderPlano, Header y el manejo de animaciones/estado (es un componente cliente) */}
+        <ClientShell>
+          {children}
+        </ClientShell>
       </body>
     </html>
   )
