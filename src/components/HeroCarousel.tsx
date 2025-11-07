@@ -1,50 +1,26 @@
 'use client'
 
 import { useState, useRef } from 'react'
+import dynamic from 'next/dynamic'
 import OptimizedImage from './OptimizedImage'
-import HTMLFlipBook from 'react-pageflip'
+
+// Import dinámico para evitar problemas durante SSR
+const HTMLFlipBook = dynamic(() => import('react-pageflip'), { ssr: false })
 
 export default function HeroCarousel({ className = '' }: { className?: string }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const flipBook = useRef<any>(null)
 
   const slides = [
-    {
-      image: '/images/projects/hero/gadehause-hero.jpg',
-      title: 'Gadehause'
-    },
-    {
-      image: '/images/projects/hero/magahause-hero.jpg',
-      title: 'Magahause'
-    },
-    {
-      image: '/images/projects/hero/vidahause-hero.jpg',
-      title: 'Vidahause'
-    },
-    {
-      image: '/images/projects/hero/jomahause-hero.jpg',
-      title: 'Jomahause'
-    },
-    {
-      image: '/images/projects/hero/markhause-hero.jpg',
-      title: 'Markhause'
-    },
-    {
-      image: '/images/projects/hero/usahause-hero.jpg',
-      title: 'Usahause'
-    },
-    {
-      image: '/images/projects/hero/cedahause-hero.png',
-      title: 'Cedahause'
-    },
-    {
-      image: '/images/projects/hero/ciane-hero.jpg',
-      title: 'Cianehouse'
-    },
-    {
-      image: '/images/projects/hero/scohause-hero.jpg',
-      title: 'Scohause'
-    }
+    { image: '/images/projects/hero/gadehause-hero.jpg', title: 'Gadehause' },
+    { image: '/images/projects/hero/magahause-hero.jpg', title: 'Magahause' },
+    { image: '/images/projects/hero/vidahause-hero.jpg', title: 'Vidahause' },
+    { image: '/images/projects/hero/jomahause-hero.jpg', title: 'Jomahause' },
+    { image: '/images/projects/hero/markhause-hero.jpg', title: 'Markhause' },
+    { image: '/images/projects/hero/usahause-hero.jpg', title: 'Usahause' },
+    { image: '/images/projects/hero/cedahause-hero.png', title: 'Cedahause' },
+    { image: '/images/projects/hero/ciane-hero.jpg', title: 'Cianehouse' },
+    { image: '/images/projects/hero/scohause-hero.jpg', title: 'Scohause' }
   ]
 
   return (
@@ -52,7 +28,6 @@ export default function HeroCarousel({ className = '' }: { className?: string })
       className={`relative overflow-hidden bg-gd-warm ${className}`}
       style={{ height: '120vh' }}
     >
-      {/* Animación tipo libro */}
       <div className="relative w-full h-full flex items-center justify-center" style={{ perspective: '1200px' }}>
         <HTMLFlipBook
           useMouseEvents={true}
@@ -97,7 +72,6 @@ export default function HeroCarousel({ className = '' }: { className?: string })
         </HTMLFlipBook>
       </div>
 
-      {/* Dots Indicator */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
         {slides.map((_, index) => (
           <button
@@ -107,9 +81,7 @@ export default function HeroCarousel({ className = '' }: { className?: string })
               setCurrentIndex(index)
             }}
             className={`w-3 h-3 rounded-full transition-colors ${
-              index === currentIndex
-                ? 'bg-white'
-                : 'bg-white/50 hover:bg-white/75'
+              index === currentIndex ? 'bg-white' : 'bg-white/50 hover:bg-white/75'
             }`}
             aria-label={`Ir a imagen ${index + 1}`}
           />
