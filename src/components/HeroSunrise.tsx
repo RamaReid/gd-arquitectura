@@ -43,7 +43,7 @@ export default function HeroSunrise({
       {/* Content */}
       <div className="relative z-10 flex h-full items-center justify-center px-6">
         <motion.div 
-          className="text-center text-white max-w-4xl mx-auto"
+          className="text-center text-black max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}

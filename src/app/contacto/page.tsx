@@ -31,10 +31,10 @@ export default function ContactoPage() {
       <div className="container mx-auto px-6 py-16">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="font-serif text-4xl md:text-5xl text-gd-gray mb-6">
+          <h1 className="font-serif text-4xl md:text-5xl text-black mb-6">
             Contacto
           </h1>
-          <p className="text-xl text-gd-gray/80 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-black max-w-3xl mx-auto leading-relaxed">
             ¿Tienes un proyecto en mente? Nos encantaría conocer tus ideas y 
             ayudarte a convertirlas en realidad.
           </p>
@@ -48,14 +48,14 @@ export default function ContactoPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-serif text-2xl text-gd-gray mb-6">
+            <h2 className="font-serif text-2xl text-black mb-6">
               Cuéntanos sobre tu proyecto
             </h2>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-gd-gray font-medium mb-2">
+                  <label className="block text-black font-medium mb-2">
                     Nombre *
                   </label>
                   <input
@@ -68,7 +68,7 @@ export default function ContactoPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-gd-gray font-medium mb-2">
+                  <label className="block text-black font-medium mb-2">
                     Email *
                   </label>
                   <input
@@ -84,7 +84,7 @@ export default function ContactoPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-gd-gray font-medium mb-2">
+                  <label className="block text-black font-medium mb-2">
                     Teléfono
                   </label>
                   <input
@@ -96,8 +96,8 @@ export default function ContactoPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-gd-gray font-medium mb-2">
-                    Tipo de Proyecto
+                  <label className="block text-black font-medium mb-2">
+                    Tipo de proyecto
                   </label>
                   <select
                     name="proyecto"
@@ -117,7 +117,7 @@ export default function ContactoPage() {
               </div>
 
               <div>
-                <label className="block text-gd-gray font-medium mb-2">
+                <label className="block text-black font-medium mb-2">
                   Mensaje *
                 </label>
                 <textarea
@@ -133,7 +133,7 @@ export default function ContactoPage() {
 
               <motion.button
                 type="submit"
-                className="w-full bg-gd-red hover:bg-gd-blue text-white font-medium py-4 px-6 rounded-lg transition-colors duration-300 cursor-pencil"
+                className="w-full bg-gd-red hover:bg-gd-blue text-black font-medium py-4 px-6 rounded-lg transition-colors duration-300 cursor-pencil"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -151,37 +151,37 @@ export default function ContactoPage() {
           >
             {/* Datos de Contacto */}
             <div className="bg-white/90 p-8 rounded-lg backdrop-blur-sm">
-              <h3 className="font-serif text-2xl text-gd-gray mb-6">
+              <h3 className="font-serif text-2xl text-black mb-6">
                 Información de Contacto
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4">
                   <span className="text-gd-red text-xl">📧</span>
                   <div>
-                    <h4 className="font-medium text-gd-gray">Email</h4>
-                    <p className="text-gd-gray/80">contacto@gdarquitectura.com</p>
+                    <h4 className="font-medium text-black">Email</h4>
+                    <p className="text-black">contacto@gdarquitectura.com</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <span className="text-gd-blue text-xl">📱</span>
                   <div>
-                    <h4 className="font-medium text-gd-gray">Teléfono</h4>
-                    <p className="text-gd-gray/80">+54 9 XXX XXX XXXX</p>
+                    <h4 className="font-medium text-black">Teléfono</h4>
+                    <p className="text-black">+54 9 XXX XXX XXXX</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <span className="text-gd-gray text-xl">📍</span>
+                  <span className="text-black text-xl">📍</span>
                   <div>
-                    <h4 className="font-medium text-gd-gray">Ubicación</h4>
-                    <p className="text-gd-gray/80">Buenos Aires, Argentina</p>
+                    <h4 className="font-medium text-black">Ubicación</h4>
+                    <p className="text-black">Buenos Aires, Argentina</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <span className="text-green-600 text-xl">🕒</span>
                   <div>
-                    <h4 className="font-medium text-gd-gray">Horarios</h4>
-                    <p className="text-gd-gray/80">Lun - Vie: 9:00 - 18:00</p>
-                    <p className="text-gd-gray/80">Sáb: 9:00 - 13:00</p>
+                    <h4 className="font-medium text-black">Horarios</h4>
+                    <p className="text-black">Lun - Vie: 9:00 - 18:00</p>
+                    <p className="text-black">Sáb: 9:00 - 13:00</p>
                   </div>
                 </div>
               </div>
@@ -189,31 +189,31 @@ export default function ContactoPage() {
 
             {/* FAQ */}
             <div className="bg-white/90 p-8 rounded-lg backdrop-blur-sm">
-              <h3 className="font-serif text-2xl text-gd-gray mb-6">
+              <h3 className="font-serif text-2xl text-black mb-6">
                 Preguntas Frecuentes
               </h3>
               <div className="space-y-4">
                 <div>
-                  <h4 className="font-medium text-gd-gray mb-2">
+                  <h4 className="font-medium text-black mb-2">
                     ¿Cuánto tiempo toma un proyecto?
                   </h4>
-                  <p className="text-sm text-gd-gray/80">
+                  <p className="text-sm text-black">
                     Depende de la complejidad, pero típicamente 3-6 meses desde el diseño hasta la construcción.
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-medium text-gd-gray mb-2">
+                  <h4 className="font-medium text-black mb-2">
                     ¿Trabajan fuera de Buenos Aires?
                   </h4>
-                  <p className="text-sm text-gd-gray/80">
+                  <p className="text-sm text-black">
                     Sí, consideramos proyectos en toda Argentina según la ubicación y alcance.
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-medium text-gd-gray mb-2">
+                  <h4 className="font-medium text-black mb-2">
                     ¿Ofrecen consultas iniciales?
                   </h4>
-                  <p className="text-sm text-gd-gray/80">
+                  <p className="text-sm text-black">
                     La primera consulta es gratuita para conocer tu proyecto y evaluar viabilidad.
                   </p>
                 </div>

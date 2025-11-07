@@ -63,23 +63,20 @@ export default function RootLayout({
           onLoadingComplete={handleLoadingComplete} 
         />
         
-        {/* Fondo principal que aparece después del loader - EN TODAS LAS PÁGINAS */}
-        {isLoadingComplete && (
-          <motion.div
-            className="fixed inset-0 z-[1]"
-            style={{
-              backgroundImage: `url('/images/background2.png')`,
-              backgroundSize: 'cover',
-              backgroundAttachment: 'fixed',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              filter: 'saturate(0.6) blur(0.75px)'
-            }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-          />
-        )}
+        {/* Fondo principal que aparece inmediatamente - EN TODAS LAS PÁGINAS */}
+        <motion.div
+          className="fixed inset-0 z-[1]"
+          style={{
+            backgroundImage: `url('/images/background2.png')`,
+            backgroundSize: 'cover',
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+        />
         
         <Header isVisible={showHeader} />
         <main className="relative z-[2]">

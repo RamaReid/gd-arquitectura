@@ -57,7 +57,7 @@ export default function ProjectPage() {
     return (
       <div className="min-h-screen pt-20 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-serif text-gd-gray mb-4">Proyecto no encontrado</h1>
+          <h1 className="text-4xl font-serif text-black mb-4">Proyecto no encontrado</h1>
           <Link href="/proyectos" className="text-gd-red hover:text-gd-red/80">
             ← Volver a proyectos
           </Link>
@@ -82,15 +82,15 @@ export default function ProjectPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="font-serif text-4xl md:text-5xl text-gd-gray mb-4">
+              <h1 className="font-serif text-4xl md:text-5xl text-black mb-4">
                 {project.title}
               </h1>
-              <div className="flex items-center gap-4 text-sm text-gd-gray/70 mb-6">
+              <div className="flex items-center gap-4 text-sm text-black mb-6">
                 <span>{project.location}</span>
                 <span>•</span>
                 <span>{project.year}</span>
               </div>
-              <p className="text-lg text-gd-gray/80 leading-relaxed">
+              <p className="text-lg text-black leading-relaxed">
                 {project.description}
               </p>
             </div>
@@ -113,10 +113,10 @@ export default function ProjectPage() {
       <section className="py-16 bg-gd-warm/30">
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl text-gd-gray">
+            <h2 className="font-serif text-3xl md:text-4xl text-black">
               Galería del Proyecto
             </h2>
-            <div className="text-gd-gray/70 text-sm">
+            <div className="text-black text-sm">
               {images.length} {images.length === 1 ? 'archivo' : 'archivos'}
             </div>
           </div>
@@ -157,7 +157,7 @@ export default function ProjectPage() {
                   {image.isVideo && (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center">
-                        <svg className="w-6 h-6 text-gd-gray ml-1" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-6 h-6 text-black ml-1" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
                         </svg>
                       </div>
@@ -166,7 +166,7 @@ export default function ProjectPage() {
                 </div>
 
                 {/* Tooltip con información */}
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-black/80 text-white text-xs rounded whitespace-nowrap z-10">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-black/80 text-black text-xs rounded whitespace-nowrap z-10">
                   {image.isVideo ? 'Video' : 'Imagen'} {index + 1}
                   <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black/80"></div>
                 </div>
@@ -192,7 +192,7 @@ export default function ProjectPage() {
                   setSelectedIndex(newIndex)
                   setSelectedImage(images[newIndex])
                 }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors z-10"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-black transition-colors z-10"
               >
                 ‹
               </button>
@@ -226,7 +226,7 @@ export default function ProjectPage() {
                   setSelectedIndex(newIndex)
                   setSelectedImage(images[newIndex])
                 }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors z-10"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-black transition-colors z-10"
               >
                 ›
               </button>
@@ -235,7 +235,7 @@ export default function ProjectPage() {
             {/* Botón cerrar */}
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors"
+              className="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-black transition-colors"
             >
               ✕
             </button>
@@ -258,7 +258,7 @@ export default function ProjectPage() {
             </div>
 
             {/* Contador */}
-            <div className="absolute bottom-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+            <div className="absolute bottom-4 right-4 bg-black/50 text-black px-3 py-1 rounded-full text-sm">
               {selectedIndex + 1} / {images.length}
             </div>
           </div>

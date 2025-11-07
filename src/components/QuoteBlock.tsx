@@ -18,12 +18,12 @@ export default function QuoteBlock({ quote, author }: QuoteBlockProps) {
     >
       <div className="container mx-auto px-6 text-center">
         <blockquote className="mx-auto max-w-4xl">
-          <p className="font-serif text-2xl md:text-3xl lg:text-4xl text-gd-gray leading-relaxed">
+          <p className="font-serif text-2xl md:text-3xl lg:text-4xl text-black leading-relaxed">
             &ldquo;{quote}&rdquo;
           </p>
           {author && (
             <footer className="mt-8">
-              <cite className="not-italic text-lg font-medium text-gd-gray/80">
+              <cite className="not-italic text-lg font-medium text-black">
                 — {author}
               </cite>
             </footer>

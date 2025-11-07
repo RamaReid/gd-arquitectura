@@ -1,39 +1,49 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import OptimizedImage from './OptimizedImage'
+import HTMLFlipBook from 'react-pageflip'
 
 export default function HeroCarousel({ className = '' }: { className?: string }) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const flipBook = useRef<any>(null)
 
   const slides = [
     {
-      image: '/images/projects/gadehause-hero.jpg',
+      image: '/images/projects/hero/gadehause-hero.jpg',
       title: 'Gadehause'
     },
     {
-      image: '/images/projects/magahause-hero.jpg',
+      image: '/images/projects/hero/magahause-hero.jpg',
       title: 'Magahause'
     },
     {
-      image: '/images/projects/vidahause-hero.jpg',
+      image: '/images/projects/hero/vidahause-hero.jpg',
       title: 'Vidahause'
     },
     {
-      image: '/images/projects/JOMAHAUSE-hero.jpg',
+      image: '/images/projects/hero/jomahause-hero.jpg',
       title: 'Jomahause'
     },
     {
-      image: '/images/projects/MARKHAUSE-hero.jpg',
+      image: '/images/projects/hero/markhause-hero.jpg',
       title: 'Markhause'
     },
     {
-      image: '/images/projects/USAHAUSE-hero.jpg',
+      image: '/images/projects/hero/usahause-hero.jpg',
       title: 'Usahause'
     },
     {
-      image: '/images/projects/CEDAHAUSE-hero.png',
+      image: '/images/projects/hero/cedahause-hero.png',
       title: 'Cedahause'
+    },
+    {
+      image: '/images/projects/hero/ciane-hero.jpg',
+      title: 'Cianehouse'
+    },
+    {
+      image: '/images/projects/hero/scohause-hero.jpg',
+      title: 'Scohause'
     }
   ]
 
@@ -42,17 +52,49 @@ export default function HeroCarousel({ className = '' }: { className?: string })
       className={`relative overflow-hidden bg-gd-warm ${className}`}
       style={{ height: '120vh' }}
     >
-      {/* Simple Image Display */}
-      <div className="relative w-full h-full">
-        <OptimizedImage
-          src={slides[currentIndex].image}
-          alt={`Proyecto arquitectónico ${currentIndex + 1}`}
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
+      {/* Animación tipo libro */}
+      <div className="relative w-full h-full flex items-center justify-center" style={{ perspective: '1200px' }}>
+        <HTMLFlipBook
+          useMouseEvents={true}
+          showPageCorners={true}
+          width={900}
+          height={600}
+          minWidth={315}
+          minHeight={420}
+          maxWidth={1200}
+          maxHeight={900}
+          size="stretch"
+          showCover={false}
+          mobileScrollSupport={true}
+          className="shadow-xl rounded-lg"
+          ref={flipBook}
+          style={{ background: 'transparent' }}
+          onFlip={(e) => setCurrentIndex(e.data)}
+          startPage={0}
+          drawShadow={true}
+          flippingTime={700}
+          usePortrait={true}
+          startZIndex={0}
+          autoSize={true}
+          maxShadowOpacity={0.5}
+          swipeDistance={50}
+          clickEventForward={true}
+          disableFlipByClick={false}
+        >
+          {slides.map((slide, idx) => (
+            <div key={idx} className="flipbook-page relative w-full h-full">
+              <OptimizedImage
+                src={slide.image}
+                alt={`Proyecto arquitectónico ${idx + 1}`}
+                fill
+                className="object-cover rounded-lg"
+                priority={idx === 0}
+                sizes="100vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
+            </div>
+          ))}
+        </HTMLFlipBook>
       </div>
 
       {/* Dots Indicator */}
@@ -60,7 +102,10 @@ export default function HeroCarousel({ className = '' }: { className?: string })
         {slides.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => {
+              flipBook.current?.pageFlip()?.flip(index)
+              setCurrentIndex(index)
+            }}
             className={`w-3 h-3 rounded-full transition-colors ${
               index === currentIndex
                 ? 'bg-white'

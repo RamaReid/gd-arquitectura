@@ -5,16 +5,16 @@ export default function FooterEditorial() {
         <div className="text-center space-y-6">
           {/* Logo */}
           <div className="mx-auto">
-            <h3 className="font-serif text-2xl text-gd-gray mb-2">
+            <h3 className="font-serif text-2xl text-black mb-2">
               GD Arquitectura
             </h3>
-            <p className="text-gd-gray/70">
+            <p className="text-black">
               Diseño y Construcción
             </p>
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-2 text-gd-gray/80">
+          <div className="space-y-2 text-black">
             <p>García Delillo</p>
             <p>Estudio de Arquitectura</p>
             <p>contacto@gdarquitectura.com</p>
@@ -22,7 +22,7 @@ export default function FooterEditorial() {
 
           {/* Copyright */}
           <div className="pt-6 border-t border-gd-gray/10">
-            <p className="text-sm text-gd-gray/60">
+            <p className="text-sm text-black">
               © 2024 GD Arquitectura. Todos los derechos reservados.
             </p>
           </div>
